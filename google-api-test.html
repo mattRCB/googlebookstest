@@ -32,7 +32,7 @@
 
 				console.log(data.items[0].volumeInfo);
 				var pic = $('<img/>').attr('src', data.items[0].volumeInfo.imageLinks.thumbnail);
-				var newItem = $(div).attr('class', "newItem").append(pic);
+				var newItem = $('<div/>').attr('class', "newItem").append(pic);
 				$('.foundBooks').append(newItem);
 			});
 		};
