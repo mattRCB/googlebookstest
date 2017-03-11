@@ -15,8 +15,8 @@
 				console.log(data);
 
 				console.log(data.items[0].volumeInfo);
-
-				$('body').append(data.items[0].volumeInfo.imageLinks.thumbnail);
+				var pic = $('<img/>').attr('src', data.items[0].volumeInfo.imageLinks.thumbnail);
+				$('body').append(pic);
 			  // var items = [];
 			
 			  // $.each(data, function(key, val) {
