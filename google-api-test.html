@@ -19,7 +19,6 @@
 	
 
 		function search_books() {
-			$('#foundBooks').empty();
 			var term = $("[name='title']").val().trim();
 			console.log(term);
 			var params = {};
@@ -30,6 +29,7 @@
 			$.getJSON(url, function(data) {
 				console.log(data);
 
+			$('#foundBooks').empty();
 
 			for (var i = 0; i < 10; i++) {
 				console.log(data.items[i].volumeInfo);
