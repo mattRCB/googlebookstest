@@ -7,13 +7,19 @@
 <body>
 
 
+	<input name="title" type="text" onkeypress="search_books()" placeholder="Enter a book title"></input>
+
+	<!-- <button type="submit" value="submit" id="submit">Submit</button> -->
+
 	<script>
 		
+	
+
 		function search_books() {
 			var params = {};
 			var url = 'https://www.googleapis.com/books/v1/volumes';
 			params['maxResults'] = 10;
-			params['q'] = "to+kill+a+mockingbird";
+			params['q'] = $("[name='title']").val().trim();
 			url += '?' + $.param(params);
 			$.getJSON(url, function(data) {
 				console.log(data);
