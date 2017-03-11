@@ -29,6 +29,8 @@
 				console.log(data.items[0].volumeInfo);
 				var pic = $('<img/>').attr('src', data.items[0].volumeInfo.imageLinks.thumbnail);
 				$('body').append(pic);
+			});
+		};
 
 
 
@@ -43,7 +45,7 @@
 			//   //   html: items.join('')
 			//   // }).appendTo('body');
 			// });
-		});
+
 
 
 		// search_books();
