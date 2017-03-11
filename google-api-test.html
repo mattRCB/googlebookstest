@@ -19,7 +19,7 @@
 	
 
 		function search_books() {
-			$('.foundBooks').empty();
+			$('#foundBooks').empty();
 			var term = $("[name='title']").val().trim();
 			console.log(term);
 			var params = {};
@@ -33,7 +33,7 @@
 				console.log(data.items[0].volumeInfo);
 				var pic = $('<img/>').attr('src', data.items[0].volumeInfo.imageLinks.thumbnail);
 				var newItem = $('<div/>').attr('class', "newItem").append(pic);
-				$('.foundBooks').append(newItem);
+				$('#foundBooks').append(newItem);
 			});
 		};
 
