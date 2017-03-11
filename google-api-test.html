@@ -18,6 +18,7 @@
 		// document.on('ready', function() {
 			$(document).on('click', '.item', function() {
 				console.log("Selected " + $(this).data('i'));
+				$(this).css('background-color', '#a2def2');
 			});
 
 			function search_books() {
