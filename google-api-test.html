@@ -7,7 +7,7 @@
 <body>
 
 	<div id="addBookDialogue">
-		<input name="title" type="text" onkeyup="search_books()" placeholder="Enter a book title"></input>
+		<input onkeyup="search_books()" name="title" type="text" placeholder="Enter a book title"></input>
 		<div id="foundBooks">
 		</div> <!-- foundBooks -->
 	</div> <!-- addBookDialogue -->
@@ -16,7 +16,9 @@
 
 	<script>
 		
-	
+		$(document).on('click', '.item', function() {
+			console.log("Selected " + $(this).data('i'));
+		});
 
 		function search_books() {
 			var term = $("[name='title']").val().trim();
@@ -28,24 +30,19 @@
 			url += '?' + $.param(params);
 			$.getJSON(url, function(data) {
 				console.log(data);
-
-			$('#foundBooks').empty();
-
-			for (var i = 0; i < 10; i++) {
-				console.log(data.items[i].volumeInfo);
-				var pic = $('<img/>').attr('src', data.items[i].volumeInfo.imageLinks.thumbnail);
-				var newItem = $('<div/>').attr('class', "newItem").append(pic);
-				$('#foundBooks').append(newItem);
-			}
-
-
+				$('#foundBooks').empty();
+				for (var i = 0; i < 10; i++) {
+					console.log(data.items[i].volumeInfo);
+					var pic = $('<img/>').attr('src', data.items[i].volumeInfo.imageLinks.thumbnail);
+					var item = $('<div/>').attr('class', "item").data('i', i).append(pic);
+					$('#foundBooks').append(item);
+				}
 			});
-		};
+		}; // search_books
 
 
-
-			//   // var items = [];
-			
+		// need to delete this... why are you saving this?
+			//   // var items = [];			
 			//   // $.each(data, function(key, val) {
 			//   //   items.push('<li id="' + key + '">' + val + '</li>');
 			//   // });
@@ -55,10 +52,8 @@
 			//   //   html: items.join('')
 			//   // }).appendTo('body');
 			// });
-
-
-
 		// search_books();
+
 
 	</script>
 </body>
