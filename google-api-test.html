@@ -9,14 +9,20 @@
 
 	<script>
 		
-		function view_books()
-		{
-			$.getJSON('https://www.googleapis.com/books/v1/volumes?q=food+allergies&maxResults=5', function(data) {
+		function search_books() {
+			var url = https://www.googleapis.com/books/v1/volumes
+			params['maxResults'] = 10;
+			params['q'] = "to+kill+a+mockingbird";
+			url += '?' + $.param(params);
+			$.getJSON(url, function(data) {
 				console.log(data);
 
 				console.log(data.items[0].volumeInfo);
 				var pic = $('<img/>').attr('src', data.items[0].volumeInfo.imageLinks.thumbnail);
 				$('body').append(pic);
+
+
+
 			  // var items = [];
 			
 			  // $.each(data, function(key, val) {
@@ -31,7 +37,7 @@
 		}
 
 
-		view_books();
+		search_books();
 
 	</script>
 </body>
