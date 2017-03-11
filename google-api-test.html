@@ -16,10 +16,12 @@
 	
 
 		function search_books() {
+			var term = $("[name='title']").val().trim();
+			console.log(term);
 			var params = {};
 			var url = 'https://www.googleapis.com/books/v1/volumes';
 			params['maxResults'] = 10;
-			params['q'] = $("[name='title']").val().trim();
+			params['q'] = term;
 			url += '?' + $.param(params);
 			$.getJSON(url, function(data) {
 				console.log(data);
