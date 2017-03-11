@@ -15,7 +15,7 @@ This is static content
 			$.getJSON('https://www.googleapis.com/books/v1/volumes?q=food+allergies&maxResults=5', function(data) {
 				console.log(data);
 
-				$('body').append(data.items[0].volumeInfo[0]);
+				console.log(data.items[0].volumeInfo[0]);
 			  // var items = [];
 			
 			  // $.each(data, function(key, val) {
