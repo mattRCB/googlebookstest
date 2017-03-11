@@ -15,10 +15,13 @@
 	<!-- <button type="submit" value="submit" id="submit">Submit</button> -->
 
 	<script>
-		// document.on('ready', function() {
+		$(document).ready(function(){
+			var selected = "";
 			$(document).on('click', '.item', function() {
+				selected = $(this).data('i')
 				console.log("Selected " + $(this).data('i'));
-				$(this).css('background-color', '#a2def2');
+				if ()	
+					$(this).css('background-color', '#a2def2');
 			});
 
 			function search_books() {
@@ -34,9 +37,14 @@
 					$('#foundBooks').empty();
 					for (var i = 0; i < 10; i++) {
 						console.log(data.items[i].volumeInfo);
-						var pic = $('<img/>').attr('src', data.items[i].volumeInfo.imageLinks.thumbnail);
+						var pic = $('<img/>')
+							.attr('src', data.items[i].volumeInfo.imageLinks.thumbnail)
+							.css('float', "left");
+						var text = $('<div/>')
+							.html("<h1>" + data.items[i].volumeInfo.title + "</h1><p>" + data.items[i].volumeInfo.authors[0] + "</p>");
 						var item = $('<div/>')
-							.attr('class', "item").css('cursor', "pointer")
+							.attr('class', "item")
+							.css('cursor', "pointer")
 							.data('i', i)
 							.append(pic);
 						$('#foundBooks').append(item);
@@ -58,7 +66,7 @@
 				// });
 			// search_books();
 
-		// }); // doc.on(ready)
+		}); // document.ready
 	</script>
 </body>
 </html>
