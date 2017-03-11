@@ -6,8 +6,11 @@
 </head>
 <body>
 
-
-	<input name="title" type="text" onkeyup="search_books()" placeholder="Enter a book title"></input>
+	<div id="addBookDialogue">
+		<input name="title" type="text" onkeyup="search_books()" placeholder="Enter a book title"></input>
+		<div id="foundBooks">
+		</div> <!-- foundBooks -->
+	</div> <!-- addBookDialogue -->
 
 	<!-- <button type="submit" value="submit" id="submit">Submit</button> -->
 
@@ -16,6 +19,7 @@
 	
 
 		function search_books() {
+			$(.foundBooks).empty();
 			var term = $("[name='title']").val().trim();
 			console.log(term);
 			var params = {};
@@ -28,7 +32,8 @@
 
 				console.log(data.items[0].volumeInfo);
 				var pic = $('<img/>').attr('src', data.items[0].volumeInfo.imageLinks.thumbnail);
-				$('body').append(pic);
+				var newItem = $(div).attr('class', "newItem").append(pic);
+				$('.foundBooks').append(newItem);
 			});
 		};
 
