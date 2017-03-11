@@ -30,9 +30,9 @@
 			$.getJSON(url, function(data) {
 				console.log(data);
 
-				console.log(data.items[0].volumeInfo);
 
 			for (var i = 0; i < 10; i++) {
+				console.log(data.items[i].volumeInfo);
 				var pic = $('<img/>').attr('src', data.items[i].volumeInfo.imageLinks.thumbnail);
 				var newItem = $('<div/>').attr('class', "newItem").append(pic);
 				$('#foundBooks').append(newItem);
