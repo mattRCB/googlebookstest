@@ -18,31 +18,31 @@
 		function search_books() {
 			var term = $("[name='title']").val().trim();
 			console.log(term);
-			var params = {};
-			var url = 'https://www.googleapis.com/books/v1/volumes';
-			params['maxResults'] = 10;
-			params['q'] = term;
-			url += '?' + $.param(params);
-			$.getJSON(url, function(data) {
-				console.log(data);
+			// var params = {};
+			// var url = 'https://www.googleapis.com/books/v1/volumes';
+			// params['maxResults'] = 10;
+			// params['q'] = term;
+			// url += '?' + $.param(params);
+			// $.getJSON(url, function(data) {
+			// 	console.log(data);
 
-				console.log(data.items[0].volumeInfo);
-				var pic = $('<img/>').attr('src', data.items[0].volumeInfo.imageLinks.thumbnail);
-				$('body').append(pic);
+			// 	console.log(data.items[0].volumeInfo);
+			// 	var pic = $('<img/>').attr('src', data.items[0].volumeInfo.imageLinks.thumbnail);
+			// 	$('body').append(pic);
 
 
 
-			  // var items = [];
+			//   // var items = [];
 			
-			  // $.each(data, function(key, val) {
-			  //   items.push('<li id="' + key + '">' + val + '</li>');
-			  // });
+			//   // $.each(data, function(key, val) {
+			//   //   items.push('<li id="' + key + '">' + val + '</li>');
+			//   // });
 			
-			  // $('<ul/>', {
-			  //   'class': 'my-new-list',
-			  //   html: items.join('')
-			  // }).appendTo('body');
-			});
+			//   // $('<ul/>', {
+			//   //   'class': 'my-new-list',
+			//   //   html: items.join('')
+			//   // }).appendTo('body');
+			// });
 		}
 
 
