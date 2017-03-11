@@ -6,7 +6,6 @@
 </head>
 <body>
 
-This is static content
 
 	<script>
 		
@@ -16,6 +15,8 @@ This is static content
 				console.log(data);
 
 				console.log(data.items[0].volumeInfo);
+
+				$('body').append(data.items[0].volumeInfo.imageLinks.thumbnail);
 			  // var items = [];
 			
 			  // $.each(data, function(key, val) {
