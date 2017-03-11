@@ -35,7 +35,7 @@
 						console.log(data.items[i].volumeInfo);
 						var pic = $('<img/>').attr('src', data.items[i].volumeInfo.imageLinks.thumbnail);
 						var item = $('<div/>')
-							.attr('class', "item").attr('cursor', "pointer")
+							.attr('class', "item").css('cursor', "pointer")
 							.data('i', i)
 							.append(pic);
 						$('#foundBooks').append(item);
