@@ -10,6 +10,7 @@
 	<script>
 		
 		function search_books() {
+			var params = {};
 			var url = 'https://www.googleapis.com/books/v1/volumes';
 			params['maxResults'] = 10;
 			params['q'] = "to+kill+a+mockingbird";
