@@ -39,7 +39,7 @@
 						console.log(data.items[i].volumeInfo);
 						var pic = $('<img/>')
 							.attr('src', data.items[i].volumeInfo.imageLinks.thumbnail)
-							.css('float', "left");
+							.css('display', "inline-block");
 						var text = $('<div/>')
 							.html("<h1>" + data.items[i].volumeInfo.title + "</h1><p>" + data.items[i].volumeInfo.authors[0] + "</p>");
 						var item = $('<div/>')
