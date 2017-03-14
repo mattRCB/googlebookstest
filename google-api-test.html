@@ -35,6 +35,7 @@
 				url += '?' + $.param(params);
 				$.getJSON(url, function(data) {
 					console.log(data);
+					$('#foundBooks').empty();						
 					for (var i = 0; i < 10; i++) {
 						console.log(data.items[i].volumeInfo);
 						var pic = $('<img/>')
@@ -49,7 +50,6 @@
 							.data('i', i)
 							.append(pic)
 							.append(text);
-						$('#foundBooks').empty();						
 						$('#foundBooks').append(item);
 					}
 				});
