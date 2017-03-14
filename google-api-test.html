@@ -29,9 +29,9 @@
 				console.log(term);
 				var params = {};
 				var url = 'https://www.googleapis.com/books/v1/volumes';
+				// params['key'] = 'AIzaSyAj_HMGjsSIJhj960s9AIDAJMIEYwzNYoI';
 				params['maxResults'] = 10;
 				params['q'] = term;
-				params['key'] = 'AIzaSyAj_HMGjsSIJhj960s9AIDAJMIEYwzNYoI';
 				url += '?' + $.param(params);
 				$.getJSON(url, function(data) {
 					console.log(data);
