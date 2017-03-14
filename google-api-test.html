@@ -29,7 +29,7 @@
 				console.log(term);
 				var params = {};
 				var url = 'https://www.googleapis.com/books/v1/volumes';
-				params['key'] = 'AIzaSyAj_HMGjsSIJhj960s9AIDAJMIEYwzNYoI';
+				params['key'] = process.ENV[gBooksKey];
 				params['maxResults'] = 10;
 				params['q'] = term;
 				url += '?' + $.param(params);
