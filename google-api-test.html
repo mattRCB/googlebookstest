@@ -31,10 +31,10 @@
 				var url = 'https://www.googleapis.com/books/v1/volumes';
 				params['maxResults'] = 10;
 				params['q'] = term;
+				params['key'] = 'AIzaSyCWbVVxyblRIxU04_pxNh3g2WQXkXPAknE';
 				url += '?' + $.param(params);
 				$.getJSON(url, function(data) {
 					console.log(data);
-					$('#foundBooks').empty();
 					for (var i = 0; i < 10; i++) {
 						console.log(data.items[i].volumeInfo);
 						var pic = $('<img/>')
@@ -49,6 +49,7 @@
 							.data('i', i)
 							.append(pic)
 							.append(text);
+						$('#foundBooks').empty();						
 						$('#foundBooks').append(item);
 					}
 				});
