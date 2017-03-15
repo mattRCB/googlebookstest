@@ -2,74 +2,19 @@
 <html>
 <head>
 	<script src="https://code.jquery.com/jquery.js"></script>
+	<link rel="stylesheet" href="./search-books.css">
 	<title></title>
 </head>
 <body>
 
 	<div id="addBookDialogue">
-		<input onkeyup="search_books()" name="title" type="text" placeholder="Enter a book title"></input>
+		<input id="searchField" onkeyup="search_books()" name="title" type="text" placeholder="Enter a book title"></input>
 		<div id="foundBooks">
 		</div> <!-- foundBooks -->
 	</div> <!-- addBookDialogue -->
 
 	<!-- <button type="submit" value="submit" id="submit">Submit</button> -->
 
-	<script>
-		// $(document).ready(function(){
-			var selected = "";
-			$(document).on('click', '.item', function() {
-				selected = $(this).data('i')
-				console.log("Selected " + $(this).data('i'));
-				// if ()	
-					$(this).css('background-color', '#a2def2');
-			});
-
-			function search_books() {
-				var term = $("[name='title']").val().trim();
-				console.log(term);
-				var params = {};
-				var url = 'https://www.googleapis.com/books/v1/volumes';
-				params['key'] = 'AIzaSyAj_HMGjsSIJhj960s9AIDAJMIEYwzNYoI';
-				params['maxResults'] = 10;
-				params['q'] = term;
-				url += '?' + $.param(params);
-				$.getJSON(url, function(data) {
-					console.log(data);
-					$('#foundBooks').empty();						
-					for (var i = 0; i < 10; i++) {
-						console.log(data.items[i].volumeInfo);
-						var pic = $('<img/>')
-							.attr('src', data.items[i].volumeInfo.imageLinks.thumbnail)
-							.css('display', "inline-block");
-						var text = $('<div/>')
-							.css('display', "inline-block")
-							.html("<h1>" + data.items[i].volumeInfo.title + "</h1><p>" + data.items[i].volumeInfo.authors[0] + "</p><p>Page Count: " + data.items[i].volumeInfo.pageCount + "</p><p>ISBN: " + data.items[i].volumeInfo.industryIdentifiers[1].identifier + "</p>");
-						var item = $('<div/>')
-							.attr('class', "item")
-							.css('cursor', "pointer")
-							.data('i', i)
-							.append(pic)
-							.append(text);
-						$('#foundBooks').append(item);
-					}
-				});
-			}; // search_books
-
-
-			// need to delete this... why are you saving this?
-				//   // var items = [];			
-				//   // $.each(data, function(key, val) {
-				//   //   items.push('<li id="' + key + '">' + val + '</li>');
-				//   // });
-				
-				//   // $('<ul/>', {
-				//   //   'class': 'my-new-list',
-				//   //   html: items.join('')
-				//   // }).appendTo('body');
-				// });
-			// search_books();
-
-		// }); // document.ready
-	</script>
+	<script src="./client.js"></script>
 </body>
 </html>
