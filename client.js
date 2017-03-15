@@ -26,7 +26,7 @@
 							.css('display', "inline-block");
 						var text = $('<div/>')
 							.css('display', "inline-block")
-							.html("<h1>" + data.items[i].volumeInfo.title + "</h1><p>" + data.items[i].volumeInfo.authors[0] + "</p><p>Page Count: " + data.items[i].volumeInfo.pageCount + "</p><p>ISBN: " + data.items[i].volumeInfo.industryIdentifiers[1].identifier + "</p>");
+							.html("<h1>" + data.items[i].volumeInfo.title + "</h1><p>" + data.items[i].volumeInfo.authors[0] + "</p><p>Page Count: " + data.items[i].volumeInfo.pageCount + "</p><p>ISBN: </p>");
 						var item = $('<div/>')
 							.attr('class', "item")
 							.css('cursor', "pointer")
@@ -35,6 +35,10 @@
 							.append(text);
 						$('#foundBooks').append(item);
 					}
+
+// " + data.items[i].volumeInfo.industryIdentifiers[1].identifier + "
+
+
 			// var template = "";
 			// 	{{#each book}}
 			// 		<div class="item" cursor="pointer" data-i="{{@index}}">
