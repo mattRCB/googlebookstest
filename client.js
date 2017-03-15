@@ -1,10 +1,22 @@
 // $(document).ready(function(){
+			$(document).on('click', '#addBook', function() {
+				$('#addBook').hide();
+				$('#addBookDialogue').show();
+			});
+
 			var selected = "";
 			$(document).on('click', '.item', function() {
 				selected = $(this).data('i')
 				console.log("Selected " + $(this).data('i'));
 				// if ()	
 					$(this).css('background-color', '#a2def2');
+			});
+
+			$(document).on('click', '#submitBook', function() {
+				$('#addBookDialogue').hide();
+				$.post("/api/add/book", book, function(response) {
+					// not sure about this route, or what we're gonna do here
+				});
 			});
 
 			function search_books() {
